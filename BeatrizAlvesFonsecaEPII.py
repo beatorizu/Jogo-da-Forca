@@ -207,7 +207,6 @@ def main():
                 print(textYW)
                 tocar_som("sound_source/SonicTheHedgehog131Up.wav")
                 break
-        novamente()
         if not novamente():
             break
 
