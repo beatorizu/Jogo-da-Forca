@@ -99,7 +99,7 @@ def espera_tocar(canal):
     while canal.get_busy():
         pass
 
-#Função para tirar carecteres especiais
+# Função para tirar carecteres especiais
 def tirar_caracteres(lista):
     nlista = []
     for word in lista:
@@ -111,16 +111,16 @@ def tirar_caracteres(lista):
             nlista.append(t.lower())
     return nlista
 
-#Retorna uma palavra sorteada, que tenha pelo menos quatro letras da seguinte
-#forma:
-    #a) você pedirá para o usuário digitar uma palavra única
-    #b) você irá acessar todas as frases recentes do Twitter que contenham essa
-    #palavra
-    #c) irá eliminar as palavras com menos de quatro letras ou repetidas
-    #d) irá sortear uma palavra entre as que sobraram. Para facilitar suponha
-    #inglês ou pt-br como línguas permitidas
+# Retorna uma palavra sorteada, que tenha pelo menos quatro letras da seguinte
+# forma:
+    # a) você pedirá para o usuário digitar uma palavra única
+    # b) você irá acessar todas as frases recentes do Twitter que contenham essa
+    # palavra
+    # c) irá eliminar as palavras com menos de quatro letras ou repetidas
+    # d) irá sortear uma palavra entre as que sobraram. Para facilitar suponha
+    # inglês ou pt-br como línguas permitidas
 
-#Função para carregar lista com as palavras da piada
+# Função para carregar lista com as palavras da piada
 def carregaJoke():
     url = 'http://api.icndb.com/jokes/random?limitTo=[nerdy]'
 
@@ -132,16 +132,16 @@ def carregaJoke():
 def sortea(seq):
     return random.choice(seq)
 
-#Imprime o desenho da FORCA correspondente ao número de letras erradas e as
-#letras certas até o momento.
+# Imprime o desenho da FORCA correspondente ao número de letras erradas e as
+# letras certas até o momento.
 def desenha(erros):
     print(desenho_forca[erros])
     print(life[erros])
 
-#Recebe como parâmetro uma string com todas as letras já tentadas (certas +
-#erradas). Devolve uma letra minúscula que não foi tentada antes. Faz
-#consistência se a pessoa digitou uma letra e não um número ou caractere
-#especial ou mesmo se não digitou nada.
+# Recebe como parâmetro uma string com todas as letras já tentadas (certas +
+# erradas). Devolve uma letra minúscula que não foi tentada antes. Faz
+# consistência se a pessoa digitou uma letra e não um número ou caractere
+# especial ou mesmo se não digitou nada.
 def chute_feio(letras, alfabeto):
     nc = ''
     for l in alfabeto:
@@ -149,8 +149,8 @@ def chute_feio(letras, alfabeto):
             nc += l
     return nc
 
-#Pergunta se a pessoa quer jogar de novo e retorna True ou False. Você deverá
-#aceitar letras maiúsculas ou minúsculas na resposta.
+# Pergunta se a pessoa quer jogar de novo e retorna True ou False. Você deverá
+# aceitar letras maiúsculas ou minúsculas na resposta.
 def novamente():
     resp = input("\nDeseja jogar novamente? S/Y(sim/yes), N(não/no)").lower()
     if resp == 'n':
@@ -159,7 +159,7 @@ def novamente():
         return True
     return novamente()
 
-#Retorna True caso todas as letras da palavra sorteada estejam na string certas.
+# Retorna True caso todas as letras da palavra sorteada estejam na string certas.
 def win(lc, p):
     for l in p:
         if l not in lc:
