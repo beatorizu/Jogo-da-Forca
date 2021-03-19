@@ -2,94 +2,7 @@ import urllib.request
 import json
 import random
 import pygame.mixer
-from jogo_forca.settings import SPECIAL_CHARS, DROWNING_SOUND_FX, GAME_OVER_SOUND_FX, WIN_OVER_SOUND_FX
-
-forca0 = '''
-    +-----+
-    |     |
-          |
-          |
-          |
-          |
-============
-'''
-
-forca1 = '''
-    +-----+
-    |     |
-    O     |
-          |
-          |
-          |
-============
-'''
-
-forca2 = '''
-    +-----+
-    |     |
-    O     |
-    |     |
-          |
-          |
-============
-'''
-
-forca3 = '''
-    +-----+
-    |     |
-   _O     |
-    |     |
-          |
-          |
-============
-'''
-
-forca4 = '''
-    +-----+
-    |     |
-   _O_    |
-    |     |
-          |
-          |
-============
-'''
-
-forca5 = '''
-    +-----+
-    |     |
-   _O_    |
-    |     |
-   /      |
-          |
-============
-'''
-
-forca6 = '''
-    +-----+
-    |     |
-   _O_    |
-    |     |
-   / \    |
-          |
-============
-'''
-
-textGO = '''
- ___     _     _   _   __    __         __  __
-|       / |   / | / | |     |  | \   | |   | _|
-|  _   /__|  /  |/  | |--   |  |  \  | |-- | \
-|___| /   | /   |   | |__   |__|   \_| |__ |  \\
-'''
-
-textYW = '''
-     __                   ___
-\ | |  | |  |   \   |   |  |  |\  | | |
- \| |  | |  |    \  |\  |  |  | \ | | |
-  | |__| |__|     \_| \_| _|_ |  \| o o
-'''
-
-desenho_forca = [forca0, forca1, forca2, forca3, forca4, forca5, forca6]
-life = '[OOOOOO]|[OOOOO ]|[OOOO  ]|[OOO   ]|[OO    ]|[O     ]|[      ]'.split('|')
+from jogo_forca.settings import SPECIAL_CHARS, DROWNING_SOUND_FX, GAME_OVER_SOUND_FX, WIN_OVER_SOUND_FX, DESENHO_FORCA, LIFE, TEXT_GO, TEXT_YW
 
 letters = 'a á ã e é i í o ó õ u ú b c ç d f g h j k l m n p q r s t v w x y z'.split()
 
@@ -141,8 +54,8 @@ def sortea(seq):
 # Imprime o desenho da FORCA correspondente ao número de letras erradas e as
 # letras certas até o momento.
 def desenha(erros):
-    print(desenho_forca[erros])
-    print(life[erros])
+    print(DESENHO_FORCA[erros])
+    print(LIFE[erros])
 
 
 # Recebe como parâmetro uma string com todas as letras já tentadas (certas +
@@ -199,7 +112,7 @@ def main():
                 else:
                     erradas += letter
             if len(erradas) > 6:
-                print(textGO)
+                print(TEXT_GO)
                 print("\nPalavra Sorteada: %s" %palavra)
                 tocar_som(GAME_OVER_SOUND_FX)
                 break
@@ -215,7 +128,7 @@ def main():
                 tocar_som(DROWNING_SOUND_FX)
             if win(certas, palavra):
                 print("\nParabéns ^^, você acaba de salvar mais um pai de família de Zé Palito!!")
-                print(textYW)
+                print(TEXT_YW)
                 tocar_som(WIN_OVER_SOUND_FX)
                 break
         if not novamente():
