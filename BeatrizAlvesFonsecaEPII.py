@@ -106,9 +106,9 @@ def tirar_caracteres(lista):
     nlista = []
     for word in lista:
         t = ''
-        for l in word:
-            if l not in "!@#$%¨&*()`´^~[]{}'/*\|_-=+, .:;<>" and l not in '"':
-                t += l
+        for letter in word:
+            if letter not in "!@#$%¨&*()`´^~[]{}'/*\|_-=+, .:;<>" and letter not in '"':
+                t += letter
         if t not in nlista and len(t) > 3:
             nlista.append(t.lower())
     return nlista
@@ -150,9 +150,9 @@ def desenha(erros):
 # especial ou mesmo se não digitou nada.
 def chute_feio(letras, alfabeto):
     nc = ''
-    for l in alfabeto:
-        if l not in letras:
-            nc += l
+    for letter in alfabeto:
+        if letter not in letras:
+            nc += letter
     return nc
 
 
@@ -169,8 +169,8 @@ def novamente():
 
 # Retorna True caso todas as letras da palavra sorteada estejam na string certas.
 def win(lc, p):
-    for l in p:
-        if l not in lc:
+    for letter in p:
+        if letter not in lc:
             return False
     return True
 
@@ -183,20 +183,20 @@ def tocar_som(som):
 def main():
     while True:
         palavra = sortea(tirar_caracteres(carregaJoke()))
-        for l in palavra:
+        for letter in palavra:
             print("-", end = "")
         certas, erradas = '', ''
         while True:
-            l = input("\nChute uma letra: ").lower()
-            if l in "!@#$%¨&*()`´^~[]{}'/*\|_-=+, .:;<>" or l in '"':
+            letter = input("\nChute uma letra: ").lower()
+            if letter in "!@#$%¨&*()`´^~[]{}'/*\|_-=+, .:;<>" or letter in '"':
                 print("\nSó letras!")
-            elif l not  in chute_feio(certas + erradas, letters):
+            elif letter not  in chute_feio(certas + erradas, letters):
                 print("\nEssa letra já foi!")
             else:
-                if l in palavra:
-                    certas += l
+                if letter in palavra:
+                    certas += letter
                 else:
-                    erradas += l
+                    erradas += letter
             if len(erradas) > 6:
                 print(textGO)
                 print("\nPalavra Sorteada: %s" %palavra)
@@ -205,9 +205,9 @@ def main():
             else:
                 desenha(len(erradas))
             print("\nErradas: %s" %erradas)
-            for l in palavra:
-                if l in certas:
-                    print(l, end = "")
+            for letter in palavra:
+                if letter in certas:
+                    print(letter, end = "")
                 else:
                     print("-", end = "")
             if len(erradas) == 6:
