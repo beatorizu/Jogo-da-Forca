@@ -95,9 +95,11 @@ letters = 'a á ã e é i í o ó õ u ú b c ç d f g h j k l m n p q r s t v w
 sound = pygame.mixer
 sound.init()
 
+
 def espera_tocar(canal):
     while canal.get_busy():
         pass
+
 
 # Função para tirar carecteres especiais
 def tirar_caracteres(lista):
@@ -120,6 +122,7 @@ def tirar_caracteres(lista):
     # d) irá sortear uma palavra entre as que sobraram. Para facilitar suponha
     # inglês ou pt-br como línguas permitidas
 
+
 # Função para carregar lista com as palavras da piada
 def carregaJoke():
     url = 'http://api.icndb.com/jokes/random?limitTo=[nerdy]'
@@ -129,14 +132,17 @@ def carregaJoke():
 
     return data['value']['joke'].split()
 
+
 def sortea(seq):
     return random.choice(seq)
+
 
 # Imprime o desenho da FORCA correspondente ao número de letras erradas e as
 # letras certas até o momento.
 def desenha(erros):
     print(desenho_forca[erros])
     print(life[erros])
+
 
 # Recebe como parâmetro uma string com todas as letras já tentadas (certas +
 # erradas). Devolve uma letra minúscula que não foi tentada antes. Faz
@@ -149,6 +155,7 @@ def chute_feio(letras, alfabeto):
             nc += l
     return nc
 
+
 # Pergunta se a pessoa quer jogar de novo e retorna True ou False. Você deverá
 # aceitar letras maiúsculas ou minúsculas na resposta.
 def novamente():
@@ -159,6 +166,7 @@ def novamente():
         return True
     return novamente()
 
+
 # Retorna True caso todas as letras da palavra sorteada estejam na string certas.
 def win(lc, p):
     for l in p:
@@ -166,9 +174,11 @@ def win(lc, p):
             return False
     return True
 
+
 def tocar_som(som):
     s = sound.Sound(som)
     espera_tocar(s.play())
+
 
 def main():
     while True:
@@ -209,6 +219,7 @@ def main():
                 break
         if not novamente():
             break
+
 
 if __name__ == '__main__':
     main()
