@@ -184,13 +184,13 @@ def main():
     while True:
         palavra = sortea(tirar_caracteres(carregaJoke()))
         for letter in palavra:
-            print("-", end = "")
+            print("-", end="")
         certas, erradas = '', ''
         while True:
             letter = input("\nChute uma letra: ").lower()
             if letter in "!@#$%¨&*()`´^~[]{}'/*\|_-=+, .:;<>" or letter in '"':
                 print("\nSó letras!")
-            elif letter not  in chute_feio(certas + erradas, letters):
+            elif letter not in chute_feio(certas + erradas, letters):
                 print("\nEssa letra já foi!")
             else:
                 if letter in palavra:
@@ -207,9 +207,9 @@ def main():
             print("\nErradas: %s" %erradas)
             for letter in palavra:
                 if letter in certas:
-                    print(letter, end = "")
+                    print(letter, end="")
                 else:
-                    print("-", end = "")
+                    print("-", end="")
             if len(erradas) == 6:
                 tocar_som("sound_source/SonicTheHedgehog15Drowning.wav")
             if win(certas, palavra):
