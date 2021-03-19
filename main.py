@@ -2,6 +2,7 @@ import urllib.request
 import json
 import random
 import pygame.mixer
+from jogo_forca.settings import SPECIAL_CHARS
 
 forca0 = '''
     +-----+
@@ -107,7 +108,7 @@ def tirar_caracteres(lista):
     for word in lista:
         t = ''
         for letter in word:
-            if letter not in "!@#$%¨&*()`´^~[]{}'/*\|_-=+, .:;<>" and letter not in '"':
+            if letter not in SPECIAL_CHARS and letter not in '"':
                 t += letter
         if t not in nlista and len(t) > 3:
             nlista.append(t.lower())
@@ -188,7 +189,7 @@ def main():
         certas, erradas = '', ''
         while True:
             letter = input("\nChute uma letra: ").lower()
-            if letter in "!@#$%¨&*()`´^~[]{}'/*\|_-=+, .:;<>" or letter in '"':
+            if letter in SPECIAL_CHARS or letter in '"':
                 print("\nSó letras!")
             elif letter not in chute_feio(certas + erradas, letters):
                 print("\nEssa letra já foi!")
