@@ -2,7 +2,7 @@ import urllib.request
 import json
 import random
 import pygame.mixer
-from jogo_forca.settings import SPECIAL_CHARS
+from jogo_forca.settings import SPECIAL_CHARS, DROWNING_SOUND_FX, GAME_OVER_SOUND_FX, WIN_OVER_SOUND_FX
 
 forca0 = '''
     +-----+
@@ -201,7 +201,7 @@ def main():
             if len(erradas) > 6:
                 print(textGO)
                 print("\nPalavra Sorteada: %s" %palavra)
-                tocar_som("sound_source/SonicTheHedgehog3MusicGameOver.wav")
+                tocar_som(GAME_OVER_SOUND_FX)
                 break
             else:
                 desenha(len(erradas))
@@ -212,11 +212,11 @@ def main():
                 else:
                     print("-", end="")
             if len(erradas) == 6:
-                tocar_som("sound_source/SonicTheHedgehog15Drowning.wav")
+                tocar_som(DROWNING_SOUND_FX)
             if win(certas, palavra):
                 print("\nParabéns ^^, você acaba de salvar mais um pai de família de Zé Palito!!")
                 print(textYW)
-                tocar_som("sound_source/SonicTheHedgehog131Up.wav")
+                tocar_som(WIN_OVER_SOUND_FX)
                 break
         if not novamente():
             break
