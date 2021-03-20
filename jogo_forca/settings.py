@@ -92,3 +92,5 @@ TEXT_YW = '''
 
 DESENHO_FORCA = [forca0, forca1, forca2, forca3, forca4, forca5, forca6]
 LIFE = '[OOOOOO]|[OOOOO ]|[OOOO  ]|[OOO   ]|[OO    ]|[O     ]|[      ]'.split('|')
+
+LETTERS = 'a á ã e é i í o ó õ u ú b c ç d f g h j k l m n p q r s t v w x y z'.split()

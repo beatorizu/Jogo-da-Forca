@@ -2,9 +2,7 @@ import urllib.request
 import json
 import random
 import pygame.mixer
-from jogo_forca.settings import SPECIAL_CHARS, DROWNING_SOUND_FX, GAME_OVER_SOUND_FX, WIN_OVER_SOUND_FX, DESENHO_FORCA, LIFE, TEXT_GO, TEXT_YW, URL
-
-letters = 'a á ã e é i í o ó õ u ú b c ç d f g h j k l m n p q r s t v w x y z'.split()
+from jogo_forca.settings import SPECIAL_CHARS, DROWNING_SOUND_FX, GAME_OVER_SOUND_FX, WIN_OVER_SOUND_FX, DESENHO_FORCA, LIFE, TEXT_GO, TEXT_YW, URL, LETTERS
 
 sound = pygame.mixer
 sound.init()
@@ -103,7 +101,7 @@ def main():
             letter = input("\nChute uma letra: ").lower()
             if letter in SPECIAL_CHARS:
                 print("\nSó letras!")
-            elif letter not in chute_feio(certas + erradas, letters):
+            elif letter not in chute_feio(certas + erradas, LETTERS):
                 print("\nEssa letra já foi!")
             else:
                 if letter in palavra:
