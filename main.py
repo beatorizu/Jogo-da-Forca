@@ -20,8 +20,9 @@ def tirar_caracteres(lista):
     nlista = []
     for word in lista:
         t = ''
+        word += '"'
         for letter in word:
-            if letter not in SPECIAL_CHARS and letter not in '"':
+            if letter not in SPECIAL_CHARS:
                 t += letter
         if t not in nlista and len(t) > 3:
             nlista.append(t.lower())
@@ -102,7 +103,7 @@ def main():
         certas, erradas = '', ''
         while True:
             letter = input("\nChute uma letra: ").lower()
-            if letter in SPECIAL_CHARS or letter in '"':
+            if letter in SPECIAL_CHARS:
                 print("\nSó letras!")
             elif letter not in chute_feio(certas + erradas, letters):
                 print("\nEssa letra já foi!")
