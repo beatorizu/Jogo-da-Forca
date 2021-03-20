@@ -112,12 +112,12 @@ def main():
                     erradas += letter
             if len(erradas) > 6:
                 print(TEXT_GO)
-                print("\nPalavra Sorteada: %s" %palavra)
+                print(f"\nPalavra Sorteada: {palavra}")
                 tocar_som(GAME_OVER_SOUND_FX)
                 break
             else:
                 desenha(len(erradas))
-            print("\nErradas: %s" %erradas)
+            print(f"\nErradas: {erradas}")
             for letter in palavra:
                 if letter in certas:
                     print(letter, end="")
