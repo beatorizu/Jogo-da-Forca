@@ -2,7 +2,7 @@ import urllib.request
 import json
 import random
 import pygame.mixer
-from jogo_forca.settings import SPECIAL_CHARS, DROWNING_SOUND_FX, GAME_OVER_SOUND_FX, WIN_OVER_SOUND_FX, DESENHO_FORCA, LIFE, TEXT_GO, TEXT_YW
+from jogo_forca.settings import SPECIAL_CHARS, DROWNING_SOUND_FX, GAME_OVER_SOUND_FX, WIN_OVER_SOUND_FX, DESENHO_FORCA, LIFE, TEXT_GO, TEXT_YW, URL
 
 letters = 'a á ã e é i í o ó õ u ú b c ç d f g h j k l m n p q r s t v w x y z'.split()
 
@@ -40,9 +40,7 @@ def tirar_caracteres(lista):
 
 # Função para carregar lista com as palavras da piada
 def carregaJoke():
-    url = 'http://api.icndb.com/jokes/random?limitTo=[nerdy]'
-
-    resp = urllib.request.urlopen(url).read()
+    resp = urllib.request.urlopen(URL).read()
     data = json.loads(resp.decode('utf-8'))
 
     return data['value']['joke'].split()
